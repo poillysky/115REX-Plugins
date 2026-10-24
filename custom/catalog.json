@@ -6,7 +6,7 @@
       "name": "Hello 测试插件",
       "description": "最小自定义插件，仅验证安装链路",
       "version": "0.0.1",
-      "path": "custom/hello"
+      "path": "hello"
     }
   ]
 }
