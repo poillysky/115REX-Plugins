@@ -1,0 +1,170 @@
+{
+  "source_id": "themoviedb",
+  "base_url": "https://api.themoviedb.org/3",
+  "auth": {
+    "type": "query",
+    "name": "api_key",
+    "from_config": "api_key"
+  },
+  "common_query": {
+    "language": { "from_config": "language" }
+  },
+  "image": {
+    "base": "https://image.tmdb.org/t/p",
+    "poster_size": "w500",
+    "backdrop_size": "w780"
+  },
+  "item": {
+    "kind": {
+      "from_field": "media_type",
+      "map": { "movie": "movie", "tv": "tv" }
+    },
+    "id_field": "id",
+    "title_fields": ["title", "name"],
+    "original_title_fields": ["original_title", "original_name"],
+    "overview_field": "overview",
+    "poster_field": "poster_path",
+    "backdrop_field": "backdrop_path",
+    "date_fields": ["release_date", "first_air_date"],
+    "rating_field": "vote_average"
+  },
+  "catalogs": [
+    {
+      "id": "search",
+      "name": "搜索",
+      "type": "movie",
+      "supports_search": true,
+      "path": "/search/multi",
+      "search_query_key": "query",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results",
+      "skip_media_types": ["person"],
+      "query": {
+        "include_adult": { "from_config": "include_adult", "default": "false" }
+      }
+    },
+    {
+      "id": "trending_all_week",
+      "name": "本周趋势",
+      "type": "movie",
+      "path": "/trending/all/week",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results",
+      "skip_media_types": ["person"]
+    },
+    {
+      "id": "trending_movie_day",
+      "name": "今日电影趋势",
+      "type": "movie",
+      "fixed_kind": "movie",
+      "path": "/trending/movie/day",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results"
+    },
+    {
+      "id": "trending_tv_day",
+      "name": "今日剧集趋势",
+      "type": "series",
+      "fixed_kind": "tv",
+      "path": "/trending/tv/day",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results"
+    },
+    {
+      "id": "movie_popular",
+      "name": "热门电影",
+      "type": "movie",
+      "fixed_kind": "movie",
+      "path": "/movie/popular",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results",
+      "query": {
+        "region": { "from_config": "region" }
+      }
+    },
+    {
+      "id": "movie_top_rated",
+      "name": "高分电影",
+      "type": "movie",
+      "fixed_kind": "movie",
+      "path": "/movie/top_rated",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results",
+      "query": {
+        "region": { "from_config": "region" }
+      }
+    },
+    {
+      "id": "movie_now_playing",
+      "name": "正在热映",
+      "type": "movie",
+      "fixed_kind": "movie",
+      "path": "/movie/now_playing",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results",
+      "query": {
+        "region": { "from_config": "region" }
+      }
+    },
+    {
+      "id": "movie_upcoming",
+      "name": "即将上映",
+      "type": "movie",
+      "fixed_kind": "movie",
+      "path": "/movie/upcoming",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results",
+      "query": {
+        "region": { "from_config": "region" }
+      }
+    },
+    {
+      "id": "tv_popular",
+      "name": "热门剧集",
+      "type": "series",
+      "fixed_kind": "tv",
+      "path": "/tv/popular",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results"
+    },
+    {
+      "id": "tv_top_rated",
+      "name": "高分剧集",
+      "type": "series",
+      "fixed_kind": "tv",
+      "path": "/tv/top_rated",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results"
+    },
+    {
+      "id": "tv_on_the_air",
+      "name": "播出中",
+      "type": "series",
+      "fixed_kind": "tv",
+      "path": "/tv/on_the_air",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results"
+    },
+    {
+      "id": "tv_airing_today",
+      "name": "今日播出",
+      "type": "series",
+      "fixed_kind": "tv",
+      "path": "/tv/airing_today",
+      "page_param": "page",
+      "page_size": 20,
+      "results_path": "results"
+    }
+  ]
+}

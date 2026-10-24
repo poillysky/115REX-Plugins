@@ -16,9 +16,15 @@
   },
   "search": {
     "path": "/search/multi",
+    "path_by_kind": {
+      "movie": "/search/movie",
+      "tv": "/search/tv",
+      "*": "/search/multi"
+    },
     "query": {
       "query": { "from_arg": "q" },
-      "include_adult": false
+      "include_adult": { "from_config": "include_adult", "default": "false" },
+      "region": { "from_config": "region" }
     },
     "results_path": "results",
     "skip_media_types": ["person"],
@@ -42,6 +48,9 @@
       "movie": "/movie/{{id}}",
       "tv": "/tv/{{id}}"
     },
+    "query": {
+      "append_to_response": "external_ids,credits"
+    },
     "item": {
       "title_fields": ["title", "name"],
       "original_title_fields": ["original_title", "original_name"],
@@ -51,8 +60,22 @@
       "date_fields": ["release_date", "first_air_date"],
       "rating_field": "vote_average",
       "runtime_field": "runtime",
+      "episode_runtime_field": "episode_run_time",
       "genres_path": "genres",
-      "genre_name_field": "name"
+      "genre_name_field": "name",
+      "extra_fields": {
+        "tagline": "tagline",
+        "status": "status",
+        "vote_count": "vote_count",
+        "popularity": "popularity",
+        "imdb_id": "imdb_id",
+        "homepage": "homepage",
+        "original_language": "original_language",
+        "number_of_seasons": "number_of_seasons",
+        "number_of_episodes": "number_of_episodes",
+        "first_air_date": "first_air_date",
+        "last_air_date": "last_air_date"
+      }
     }
   }
 }
