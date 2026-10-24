@@ -2,12 +2,13 @@
   "id": "themoviedb",
   "name": "TMDB 影视数据",
   "description": "从 The Movie Database 拉取海报、简介、评分、趋势与榜单",
-  "version": "1.1.0",
+  "version": "1.0.1",
+  "author": "REX",
   "origin": "official",
   "engines": { "rex": ">=1.0.0" },
   "capabilities": ["metadata_source", "catalog_source"],
   "icon": "movie_filter_outlined",
-  "accent": "#6366F1",
+  "accent": "#01B4E4",
   "permissions": ["network"],
   "config_schema": [
     {
