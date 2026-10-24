@@ -1,0 +1,58 @@
+{
+  "source_id": "themoviedb",
+  "base_url": "https://api.themoviedb.org/3",
+  "auth": {
+    "type": "query",
+    "name": "api_key",
+    "from_config": "api_key"
+  },
+  "common_query": {
+    "language": { "from_config": "language" }
+  },
+  "image": {
+    "base": "https://image.tmdb.org/t/p",
+    "poster_size": "w500",
+    "backdrop_size": "w780"
+  },
+  "search": {
+    "path": "/search/multi",
+    "query": {
+      "query": { "from_arg": "q" },
+      "include_adult": false
+    },
+    "results_path": "results",
+    "skip_media_types": ["person"],
+    "item": {
+      "kind": {
+        "from_field": "media_type",
+        "map": { "movie": "movie", "tv": "tv" }
+      },
+      "id_field": "id",
+      "title_fields": ["title", "name"],
+      "original_title_fields": ["original_title", "original_name"],
+      "overview_field": "overview",
+      "poster_field": "poster_path",
+      "backdrop_field": "backdrop_path",
+      "date_fields": ["release_date", "first_air_date"],
+      "rating_field": "vote_average"
+    }
+  },
+  "detail": {
+    "path_by_kind": {
+      "movie": "/movie/{{id}}",
+      "tv": "/tv/{{id}}"
+    },
+    "item": {
+      "title_fields": ["title", "name"],
+      "original_title_fields": ["original_title", "original_name"],
+      "overview_field": "overview",
+      "poster_field": "poster_path",
+      "backdrop_field": "backdrop_path",
+      "date_fields": ["release_date", "first_air_date"],
+      "rating_field": "vote_average",
+      "runtime_field": "runtime",
+      "genres_path": "genres",
+      "genre_name_field": "name"
+    }
+  }
+}
