@@ -1,0 +1,11 @@
+{
+  "id": "hello",
+  "name": "Hello 测试插件",
+  "description": "最小的自定义插件：不含任何能力，用于验证仓库拉取与安装链路",
+  "version": "0.0.1",
+  "types": ["movie"],
+  "resources": ["catalog"],
+  "catalogs": [
+    { "type": "movie", "id": "hello", "name": "Hello" }
+  ]
+}

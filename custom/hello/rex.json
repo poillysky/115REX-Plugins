@@ -1,0 +1,10 @@
+{
+  "id": "hello",
+  "author": "REX",
+  "accent": "#34C759",
+  "icon": "extension_outlined",
+  "permissions": [],
+  "engines": { "rex": ">=1.0.0" },
+  "capabilities": [],
+  "config_schema": []
+}
